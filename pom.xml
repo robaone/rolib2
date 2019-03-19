@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.robaone</groupId>
 	<artifactId>rolib2</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>Rolib 2.0</name>
 	<dependencies>
 		<dependency>
