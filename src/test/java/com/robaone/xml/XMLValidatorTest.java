@@ -1,11 +1,5 @@
 package com.robaone.xml;
 
-import static org.junit.Assert.*;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
 import org.apache.commons.io.IOUtils;
 import org.junit.After;
 import org.junit.Before;

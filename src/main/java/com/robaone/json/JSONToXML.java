@@ -3,7 +3,7 @@ package com.robaone.json;
 import java.io.EOFException;
 import java.util.Iterator;
 
-import org.apache.commons.cli.BasicParser;
+import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.Options;
@@ -25,7 +25,7 @@ public class JSONToXML implements Runnable {
 	public static void main(String[] args) {
 		try {
 			JSONToXML converter = new JSONToXML();
-			CommandLineParser parser = new BasicParser();
+			CommandLineParser parser = new DefaultParser();
 			CommandLine cmd = parser.parse(converter.options, args);
 			if (cmd.hasOption("a")) {
 				converter.setAttributeMode(true);

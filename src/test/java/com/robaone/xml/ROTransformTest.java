@@ -1,15 +1,10 @@
 package com.robaone.xml;
 
-import static org.junit.Assert.*;
-
-import java.io.InputStream;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.w3c.dom.Document;
 
 public class ROTransformTest {
 
