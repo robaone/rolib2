@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.citizensrx.com/folder_settings" xmlns:tns="http://www.citizensrx.com/folder_settings" elementFormDefault="qualified">
+
+    <element name="folders" type="tns:foldersType"></element>
+    
+    <complexType name="foldersType">
+    	<sequence>
+    		<element name="folder" type="tns:folderType" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="folderType">
+    	<sequence>
+    		<element name="date" type="date" maxOccurs="1" minOccurs="0"></element>
+    		<element name="user" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="client_name" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="client_delete" type="boolean" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+</schema>

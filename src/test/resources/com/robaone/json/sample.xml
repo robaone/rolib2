@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<parent>
+	<number_array>1</number_array>
+	<number_array>2</number_array>
+	<number_array>3</number_array>
+	<string_array>01</string_array>
+	<string_array>next</string_array>
+	<object>
+		<field1>first field</field1>
+		<field2>second field</field2>
+		<field_with_attr name="my name">Ansel</field_with_attr>
+		<object>
+			<arm>left arm</arm>
+			<arm>right arm</arm>
+			<leg>left let</leg>
+			<leg>right leg</leg>
+		</object>
+		<empty/>
+		<empty/>
+	</object>
+	<empty/>
+</parent>
