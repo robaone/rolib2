@@ -25,6 +25,10 @@ public class LogErrorWriter extends PrintStream {
 			@Override
 			public void flush() {
 				logger.log(Level.SEVERE,bout.toString());
+				try {
+					bout.flush();
+				} catch (IOException e) {
+				}
 			}
 			
 		});
@@ -37,6 +41,7 @@ public class LogErrorWriter extends PrintStream {
 		try {
 			LogErrorWriter writer = new LogErrorWriter(name);
 			e.printStackTrace(writer);
+			writer.flush();
 		}catch(Exception e2) {}
 	}
 
