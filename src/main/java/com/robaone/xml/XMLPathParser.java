@@ -8,6 +8,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.robaone.FieldValidator;
+import com.robaone.log.LogErrorWriter;
 import com.robaone.util.LineReader;
 
 public class XMLPathParser implements Runnable {
@@ -35,7 +36,7 @@ public class XMLPathParser implements Runnable {
 			}
 			System.out.println(parser.getOutput());
 		}catch(Exception e){
-			e.printStackTrace();
+			LogErrorWriter.log(XMLPathParser.class, e);
 			System.exit(1);
 		}
 	}

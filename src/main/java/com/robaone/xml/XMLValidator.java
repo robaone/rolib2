@@ -5,6 +5,7 @@ import java.io.EOFException;
 import java.io.File;
 
 import javax.xml.XMLConstants;
+import javax.xml.stream.XMLInputFactory;
 import javax.xml.transform.Source;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamSource;
@@ -16,6 +17,7 @@ import org.apache.commons.io.FileUtils;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import com.robaone.log.LogErrorWriter;
 import com.robaone.util.LineReader;
 
 public class XMLValidator {
@@ -32,6 +34,8 @@ public class XMLValidator {
 				.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 		Schema schema = schemaFactory.newSchema(schemaFile);
 		Validator validator = schema.newValidator();
+		validator.setFeature(XMLInputFactory.IS_SUPPORTING_EXTERNAL_ENTITIES, Boolean.FALSE);
+		validator.setFeature(XMLInputFactory.SUPPORT_DTD, Boolean.FALSE);
 		try {
 			validator.validate(new DOMSource(xml));
 			return true;
@@ -60,7 +64,7 @@ public class XMLValidator {
 				System.out.println("NOT valid");
 			}
 		}catch(Exception e){
-			e.printStackTrace();
+			LogErrorWriter.log(XMLValidator.class, e);
 			System.err.println("Usage: [xsd schema file]");
 			System.exit(1);
 		}

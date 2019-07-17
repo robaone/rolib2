@@ -21,14 +21,14 @@ public class JSONResponse<D> {
 	public static final int CLOSED_FOR_BUSINESS = 4;
 
 	private int status;
-	private HashMap<String,String> m_errors = new HashMap<String,String>();
-	private Vector<D> m_data;
+	private HashMap<String,String> mErrors = new HashMap<String,String>();
+	private Vector<D> mData;
 	private int startRow;
 	private int endRow;
 	private int totalRows;
 	private String generalerror;
 	private int page;
-	private Properties m_props;
+	private Properties mProps;
 	public JSONResponse(){}
 
 	public void setStatus(int i) {
@@ -45,27 +45,27 @@ public class JSONResponse<D> {
 		return this.generalerror;
 	}
 	public void addError(String field, String message) {
-		this.m_errors.put(field, message);
+		this.mErrors.put(field, message);
 	}
 	public HashMap<String,String> getErrors(){
-		return this.m_errors;
+		return this.mErrors;
 	}
 
 	protected void setErrors(
 			HashMap<String, String> mErrors) {
-		this.m_errors = mErrors;
+		this.mErrors = mErrors;
 	}
 	public Vector<D> getData(){
-		if(this.m_data == null){
-			this.m_data = new Vector<D>();
+		if(this.mData == null){
+			this.mData = new Vector<D>();
 		}
-		return this.m_data;
+		return this.mData;
 	}
 	public void addData(D data){
-		if(this.m_data == null){
-			this.m_data = new Vector<D>();
+		if(this.mData == null){
+			this.mData = new Vector<D>();
 		}
-		this.m_data.add(data);
+		this.mData.add(data);
 		this.recalc();
 	}
 
@@ -105,10 +105,10 @@ public class JSONResponse<D> {
 		this.page = p;
 	}
 	public Properties getProperties(){
-		if(m_props == null){
-			m_props = new Properties();
+		if(mProps == null){
+			mProps = new Properties();
 		}
-		return m_props;
+		return mProps;
 	}
 
 	@Override

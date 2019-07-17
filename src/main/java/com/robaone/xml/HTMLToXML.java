@@ -8,6 +8,7 @@ import org.htmlcleaner.HtmlCleaner;
 import org.htmlcleaner.SimpleHtmlSerializer;
 import org.htmlcleaner.TagNode;
 
+import com.robaone.log.LogErrorWriter;
 import com.robaone.util.LineReader;
 
 public class HTMLToXML implements Runnable {
@@ -24,7 +25,7 @@ public class HTMLToXML implements Runnable {
 			}
 			System.out.println(parser.getOutput());
 		}catch(Exception e){
-			e.printStackTrace();
+			LogErrorWriter.log(HTMLToXML.class,e);
 			System.exit(1);
 		}
 	}

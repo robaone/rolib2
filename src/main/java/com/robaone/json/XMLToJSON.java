@@ -15,6 +15,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.robaone.FieldValidator;
+import com.robaone.log.LogErrorWriter;
 import com.robaone.util.LineReader;
 import com.robaone.xml.XMLDocumentReader;
 
@@ -40,7 +41,7 @@ public class XMLToJSON implements Runnable {
 			System.out.println(converter.getJson());
 			System.exit(0);
 		}catch(Exception e){
-			e.printStackTrace();
+			LogErrorWriter.log(XMLToJSON.class, e);
 			System.exit(1);
 		}
 	}

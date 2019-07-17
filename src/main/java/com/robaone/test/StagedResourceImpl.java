@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.regex.Pattern;
 
+import com.robaone.log.LogErrorWriter;
+
 public class StagedResourceImpl implements StagedResource {
 	private File resourceFile;
 	public StagedResourceImpl(File file) {
@@ -44,7 +46,7 @@ public class StagedResourceImpl implements StagedResource {
 				}
 			}
 		}catch(Exception e){
-			e.printStackTrace();
+			LogErrorWriter.log(this.getClass(), e);
 		}
 		return bout == null ? null :  bout.toString();
 	}
@@ -54,15 +56,9 @@ public class StagedResourceImpl implements StagedResource {
 	}
 	@Override
 	public void save(String content) throws Exception {
-		FileWriter writer = null;
-		try{
-			writer = new FileWriter(this.getFile());
+		try(FileWriter writer = new FileWriter(this.getFile())){
 			writer.write(content);
-		}finally{
-			if(writer != null){
-				writer.flush();
-				writer.close();
-			}
+			writer.flush();
 		}
 	}
 

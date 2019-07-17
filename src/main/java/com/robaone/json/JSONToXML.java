@@ -2,12 +2,12 @@ package com.robaone.json;
 
 import java.io.EOFException;
 import java.util.Iterator;
-
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.Options;
 import com.robaone.FieldValidator;
+import com.robaone.log.LogErrorWriter;
 import com.robaone.util.LineReader;
 
 public class JSONToXML implements Runnable {
@@ -16,7 +16,6 @@ public class JSONToXML implements Runnable {
 	private String json;
 	private String xml;
 	private boolean attributeMode;
-
 	public JSONToXML() {
 		this.options = new Options();
 		this.options.addOption("a", "attribute", false, "Attribute mode");
@@ -38,7 +37,7 @@ public class JSONToXML implements Runnable {
 			System.out.println(converter.getXml());
 			System.exit(0);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LogErrorWriter.log(JSONToXML.class, e);
 			System.exit(1);
 		}
 	}
