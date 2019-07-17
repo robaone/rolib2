@@ -60,7 +60,7 @@ public class ROTransform {
 	protected TransformerFactory newFactory()
 			throws TransformerFactoryConfigurationError, TransformerConfigurationException {
 		TransformerFactory tFactory = TransformerFactory.newInstance();
-		tFactory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+		tFactory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, false);
 		return tFactory;
 	}
 

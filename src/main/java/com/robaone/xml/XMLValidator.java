@@ -5,7 +5,6 @@ import java.io.EOFException;
 import java.io.File;
 
 import javax.xml.XMLConstants;
-import javax.xml.stream.XMLInputFactory;
 import javax.xml.transform.Source;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamSource;
@@ -34,8 +33,6 @@ public class XMLValidator {
 				.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 		Schema schema = schemaFactory.newSchema(schemaFile);
 		Validator validator = schema.newValidator();
-		validator.setFeature(XMLInputFactory.IS_SUPPORTING_EXTERNAL_ENTITIES, Boolean.FALSE);
-		validator.setFeature(XMLInputFactory.SUPPORT_DTD, Boolean.FALSE);
 		try {
 			validator.validate(new DOMSource(xml));
 			return true;

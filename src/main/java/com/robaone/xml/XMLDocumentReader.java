@@ -10,12 +10,10 @@ import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import javax.xml.XMLConstants;
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.stream.XMLInputFactory;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -44,8 +42,6 @@ public class XMLDocumentReader {
 	private XPath xpath;
 	public XMLDocumentReader() throws ParserConfigurationException {
 		factory = DocumentBuilderFactory.newInstance();
-		factory.setFeature(XMLInputFactory.IS_SUPPORTING_EXTERNAL_ENTITIES, Boolean.FALSE);
-		factory.setFeature(XMLInputFactory.SUPPORT_DTD, Boolean.FALSE);
 		factory.setNamespaceAware(true);
 		builder = factory.newDocumentBuilder();
 		xfactory = XPathFactory.newInstance();
@@ -147,8 +143,7 @@ public class XMLDocumentReader {
 	}
 	protected TransformerFactory newTransformerFactory()
 			throws TransformerFactoryConfigurationError, TransformerConfigurationException {
-		TransformerFactory tf = this.newTransformerFactory();
-		tf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+		TransformerFactory tf = TransformerFactory.newInstance();
 		return tf;
 	}
 
