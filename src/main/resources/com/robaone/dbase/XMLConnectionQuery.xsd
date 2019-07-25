@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid XML Studio 1.0.7.0 (http://www.liquid-technologies.com) -->
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Report">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Author" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="Group">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Header">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="field" type="xs:string" />
+                      <xs:attribute name="key" type="xs:boolean" />
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="1" maxOccurs="1" name="Data">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="unbounded" name="Column">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="field" type="xs:string" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Variable">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute name="Name" type="xs:string" />
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ResultSet" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Query">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="1" maxOccurs="1" name="PreparedStatement" type="xs:string" />
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Parameter">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="type">
+                              <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                  <xs:enumeration value="date" />
+                                  <xs:enumeration value="string" />
+                                  <xs:enumeration value="int" />
+                                  <xs:enumeration value="long" />
+                                  <xs:enumeration value="double" />
+                                  <xs:enumeration value="bigdecimal" />
+                                  <xs:enumeration value="char" />
+                                  <xs:enumeration value="float" />
+                                  <xs:enumeration value="time" />
+                                  <xs:enumeration value="timestamp" />
+                                  <xs:enumeration value="binaryinputstream" />
+                                  <xs:enumeration value="asciiinputstream" />
+                                  <xs:enumeration value="bytes" />
+                                </xs:restriction>
+                              </xs:simpleType>
+                            </xs:attribute>
+                            <xs:attribute name="name" type="xs:string" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="ResultGroup">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Record">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="1" maxOccurs="unbounded" name="Field">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="name" type="xs:string" />
+                                  <xs:attribute name="type">
+                                    <xs:simpleType>
+                                      <xs:restriction base="xs:string">
+                                        <xs:enumeration value="date" />
+                                        <xs:enumeration value="string" />
+                                        <xs:enumeration value="int" />
+                                        <xs:enumeration value="long" />
+                                        <xs:enumeration value="double" />
+                                        <xs:enumeration value="bigdecimal" />
+                                        <xs:enumeration value="byte[]" />
+                                        <xs:enumeration value="char" />
+                                        <xs:enumeration value="float" />
+                                        <xs:enumeration value="time" />
+                                        <xs:enumeration value="timestamp" />
+                                      </xs:restriction>
+                                    </xs:simpleType>
+                                  </xs:attribute>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="Date" type="xs:dateTime" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

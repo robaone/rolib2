@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="../../../../../main/resources/com/robaone/dbase/XMLConnectionQuery.xsd">
+	<ResultSet name="select">
+		<Query>
+			<PreparedStatement>select FirstName, LastName from Names where FirstName = ?</PreparedStatement>
+			<Parameter name="firstname" type="string" />
+		</Query>
+	</ResultSet>
+	<ResultSet name="select_count">
+		<Query>
+			<PreparedStatement>select count(*) from Names where FirstName = ?</PreparedStatement>
+			<Parameter name="firstname" type="string" />
+		</Query>
+	</ResultSet>
+</Report>
