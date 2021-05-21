@@ -27,5 +27,5 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: package
-          path: target/rolib-${{ steps.version.outputs.version }}-jar-with-dependencies.jar
+          path: target/rolib2-${{ steps.version.outputs.version }}-jar-with-dependencies.jar
       
