@@ -19,10 +19,11 @@ jobs:
           mvn package -f pom.xml
       - name: Extract java project version number
         id: version
+        working-directory: .
         run: |
           VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version 2>/dev/null | grep '^[0-9]')
           echo ::set-output name=version::$VERSION
-      - name: Upload package artifact for post-deploy job
+      - name: Upload package artifact
         uses: actions/upload-artifact@v1
         with:
           name: package
